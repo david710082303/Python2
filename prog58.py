@@ -6,7 +6,7 @@ with open('reviews.txt', 'r') as f:
     for line in f:
         data.append(line)
         count += 1
-        if count % 10000 == 0:
+        if count % 100000 == 0:
             print(len(data))
 print('讀取完了，總共有', len(data), '筆資料')
 
@@ -23,12 +23,10 @@ print('一共有', len(good), '筆留言包含good')
 print('--------------------------------------------------------------')
 print(new[0].strip())
 print('--------------------------------------------------------------')
-print(new[1].strip())
-print('--------------------------------------------------------------')
-print(new[2].strip())
-print('--------------------------------------------------------------')
 print(good[0].strip())
-print('--------------------------------------------------------------')
-print(good[1].strip())
-print('--------------------------------------------------------------')
-print(good[2].strip())
+
+good = [1 for d in data if 'good' in d]
+print(good)
+
+bad = ['bad' in d for d in data]  #'bad' in d是一個運算，會回傳true或false
+print(bad)
